@@ -113,14 +113,22 @@ const ILU = {
     <g transform="translate(95 75)"><circle r="52" fill="#fff" stroke="#14532d" stroke-width="4"/>
     <path d="M0 0 L0 -52 A52 52 0 0 1 52 0Z" fill="#f59e0b"/><path d="M0 0 L52 0 A52 52 0 0 1 0 52Z" fill="#f59e0b"/><path d="M0 0 L0 52 A52 52 0 0 1 -52 0Z" fill="#f59e0b"/>
     <path d="M0 -52 V52 M-52 0 H52" stroke="#14532d" stroke-width="4"/></g>
-    <g font-family="Arial" font-weight="900" text-anchor="middle" fill="#fff"><text x="230" y="62" font-size="44">3</text><rect x="200" y="72" width="60" height="6" rx="3" fill="#fff"/><text x="230" y="118" font-size="44">4</text></g></svg>`
+    <g font-family="Arial" font-weight="900" text-anchor="middle" fill="#fff"><text x="230" y="62" font-size="44">3</text><rect x="200" y="72" width="60" height="6" rx="3" fill="#fff"/><text x="230" y="118" font-size="44">4</text></g></svg>`,
+  numeros: (fondo) => `<svg viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" fill="${fondo}"/>
+    <g stroke="#0e7a46" stroke-width="3">
+      <rect x="46" y="26" width="22" height="90" rx="4" fill="#2ec07a"/><rect x="74" y="26" width="22" height="90" rx="4" fill="#2ec07a"/></g>
+    <g stroke="#eafff2" stroke-width="1.5" opacity=".55">
+      <line x1="46" y1="35" x2="96" y2="35"/><line x1="46" y1="44" x2="96" y2="44"/><line x1="46" y1="53" x2="96" y2="53"/><line x1="46" y1="62" x2="96" y2="62"/><line x1="46" y1="71" x2="96" y2="71"/><line x1="46" y1="80" x2="96" y2="80"/><line x1="46" y1="89" x2="96" y2="89"/><line x1="46" y1="98" x2="96" y2="98"/><line x1="46" y1="107" x2="96" y2="107"/></g>
+    <g fill="#ffb020" stroke="#c67a00" stroke-width="3"><rect x="114" y="94" width="22" height="22" rx="4"/><rect x="140" y="94" width="22" height="22" rx="4"/></g>
+    <g font-family="Arial" font-weight="900" text-anchor="end" fill="#fff"><text x="300" y="62" font-size="40">22</text><text x="300" y="110" font-size="24" fill="#eafff2">20 + 2</text></g></svg>`
 };
 const BASE = 'https://hoja1304-sudo.github.io/';
 // Grados e interactivos (se agregan aquí los nuevos)
 const GRADOS = [
   {n:1, nombre:'Primer grado', juegos:[
     {t:'Monedas de primer grado', d:'Relación entre las monedas hasta ₡100: contar, comparar y pagar con monedas.', ilu:'monedas', fondo:'#f59e0b', url:'monedas-primer-grado/', etq:['Monedas','Números']},
-    {t:'Doble y mitad de un número', d:'Juego del topo, cartas, problemas, calcular el doble y la mitad, con adaptaciones (ACS).', ilu:'doble', fondo:'#7c3aed', url:'dobles-topo-primer-grado/', etq:['Doble','Mitad','ACS']}
+    {t:'Doble y mitad de un número', d:'Juego del topo, cartas, problemas, calcular el doble y la mitad, con adaptaciones (ACS).', ilu:'doble', fondo:'#7c3aed', url:'dobles-topo-primer-grado/', etq:['Doble','Mitad','ACS']},
+    {t:'Composición y descomposición', d:'La máquina de números: laboratorio de bloques base 10, juego de tortugas y pizarra para componer y descomponer con suma y resta.', ilu:'numeros', fondo:'#3f7bd6', url:'composicion-descomposicion-primer-grado/', etq:['Composición','Descomposición','Suma y resta']}
   ]},
   {n:2, nombre:'Segundo grado', juegos:[
     {t:'Monedas de segundo grado', d:'Relación entre las monedas hasta ₡500: equivalencias, pagos y vuelto.', ilu:'monedas', fondo:'#0ea5e9', url:'monedas-segundo-grado/', etq:['Monedas','Números']},
