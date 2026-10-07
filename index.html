@@ -58,6 +58,7 @@ a{color:inherit}
 .autoria{margin:40px auto 0;text-align:center;color:var(--soft);font-size:clamp(.85rem,1.8vw,.98rem);line-height:1.5}
 .autoria strong{font-weight:600}
 /* colores por grado */
+.gM{--c:#0d9488}.gM .num,.gM .n,.gM .jugar{background:#0d9488}
 .g1{--c:#e0562b}.g2{--c:#7c3aed}.g3{--c:#0e7490}.g4{--c:#16a34a}.g5{--c:#db2777}.g6{--c:#b45309}
 .g1 .num,.g1 .n,.g1 .jugar{background:#e0562b}.g2 .num,.g2 .n,.g2 .jugar{background:#7c3aed}.g3 .num,.g3 .n,.g3 .jugar{background:#0e7490}
 .g4 .num,.g4 .n,.g4 .jugar{background:#16a34a}.g5 .num,.g5 .n,.g5 .jugar{background:#db2777}.g6 .num,.g6 .n,.g6 .jugar{background:#b45309}
@@ -66,13 +67,14 @@ a{color:inherit}
 <body>
 <header class="hero">
   <button class="theme" id="tema" aria-label="Cambiar a modo oscuro">🌙</button>
-  <span class="kicker">Matemática · Primaria · Costa Rica</span>
+  <span class="kicker">Matemática · Preescolar y Primaria · Costa Rica</span>
   <h1>🎲 Interactivos de Matemática</h1>
   <p>Juegos y recursos interactivos para practicar en clase o en casa. Funcionan en celular, tableta, computadora y pizarra interactiva.</p>
 </header>
 
 <main class="wrap">
   <nav class="chips" aria-label="Grados">
+    <a class="chip gM" href="#gradoM"><span class="n">M</span>Materno</a>
     <a class="chip g1" href="#grado1"><span class="n">1</span>Primer grado</a>
     <a class="chip g2" href="#grado2"><span class="n">2</span>Segundo grado</a>
     <a class="chip g3" href="#grado3"><span class="n">3</span>Tercer grado</a>
@@ -121,10 +123,18 @@ const ILU = {
       <line x1="46" y1="35" x2="96" y2="35"/><line x1="46" y1="44" x2="96" y2="44"/><line x1="46" y1="53" x2="96" y2="53"/><line x1="46" y1="62" x2="96" y2="62"/><line x1="46" y1="71" x2="96" y2="71"/><line x1="46" y1="80" x2="96" y2="80"/><line x1="46" y1="89" x2="96" y2="89"/><line x1="46" y1="98" x2="96" y2="98"/><line x1="46" y1="107" x2="96" y2="107"/></g>
     <g fill="#ffb020" stroke="#c67a00" stroke-width="3"><rect x="114" y="94" width="22" height="22" rx="4"/><rect x="140" y="94" width="22" height="22" rx="4"/></g>
     <g font-family="Arial" font-weight="900" text-anchor="end" fill="#fff"><text x="300" y="62" font-size="40">22</text><text x="300" y="110" font-size="24" fill="#eafff2">20 + 2</text></g></svg>`
+  ,colores: (fondo) => `<svg viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" fill="${fondo}"/>
+    <g stroke="rgba(0,0,0,.25)" stroke-width="3"><circle cx="50" cy="44" r="20" fill="#e53935"/><circle cx="270" cy="40" r="20" fill="#1e6fe0"/><circle cx="58" cy="112" r="20" fill="#ffd21f"/><circle cx="268" cy="110" r="20" fill="#8e44c9"/><circle cx="110" cy="30" r="16" fill="#43b047"/><circle cx="212" cy="124" r="16" fill="#ff8c1a"/></g>
+    <g transform="translate(160 80) rotate(-90)"><g fill="#2e9e4f"><ellipse cx="22" cy="24" rx="8" ry="5"/><ellipse cx="22" cy="-24" rx="8" ry="5"/><ellipse cx="-22" cy="25" rx="8" ry="5"/><ellipse cx="-22" cy="-25" rx="8" ry="5"/></g>
+    <ellipse cx="39" cy="0" rx="14" ry="11" fill="#39b55e"/><circle cx="45" cy="-5" r="2.5" fill="#12233a"/><circle cx="45" cy="5" r="2.5" fill="#12233a"/>
+    <ellipse cx="0" cy="0" rx="36" ry="33" fill="#c76a1e" stroke="#8a4712" stroke-width="4"/><path d="M14 -9 L0 -16 L-14 -9 L-14 9 L0 16 L14 9Z" fill="#e08a2e" stroke="#8a4712" stroke-width="2"/></g></svg>`
 };
 const BASE = 'https://hoja1304-sudo.github.io/';
 // Grados e interactivos (se agregan aquí los nuevos)
 const GRADOS = [
+  {n:'M', nombre:'Materno', juegos:[
+    {t:'Tortuguita busca colores', d:'La voz pide un color y la tortuguita debe comerse la manzana de ese color: rojo, verde, azul, negro, amarillo, naranja, morado y blanco.', ilu:'colores', fondo:'#99f6e4', url:'tortuguita-busca-colores-materno/', etq:['Colores','Preescolar','Con voz']}
+  ]},
   {n:1, nombre:'Primer grado', juegos:[
     {t:'Monedas de primer grado', d:'Relación entre las monedas hasta ₡100: contar, comparar y pagar con monedas.', ilu:'monedas', fondo:'#f59e0b', url:'monedas-primer-grado/', etq:['Monedas','Números']},
     {t:'Doble y mitad de un número', d:'Juego del topo, cartas, problemas, calcular el doble y la mitad, con adaptaciones (ACS).', ilu:'doble', fondo:'#7c3aed', url:'dobles-topo-primer-grado/', etq:['Doble','Mitad','ACS']},
