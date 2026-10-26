@@ -89,6 +89,10 @@ a{color:inherit}
 <script>
 // Ilustraciones (SVG) de cada tarjeta
 const ILU = {
+  cuerpos: (fondo) => `<svg viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" fill="${fondo}"/>
+    <polygon points="40,50 90,50 110,38 60,38" fill="#14b8a6" stroke="#fff" stroke-width="2"/><polygon points="40,50 90,50 90,118 40,118" fill="#a07ece" stroke="#fff" stroke-width="2"/><polygon points="90,50 110,38 110,106 90,118" fill="#8a66b8" stroke="#fff" stroke-width="2"/>
+    <ellipse cx="170" cy="46" rx="30" ry="10" fill="#14b8a6" stroke="#fff" stroke-width="2"/><path d="M140 46v62a30 10 0 0 0 60 0V46a30 10 0 0 1-60 0z" fill="#a07ece" stroke="#fff" stroke-width="2"/>
+    <ellipse cx="260" cy="108" rx="32" ry="10" fill="#8a66b8" stroke="#fff" stroke-width="2"/><path d="M228 108L260 28l32 80a32 10 0 0 1-64 0z" fill="#a07ece" stroke="#fff" stroke-width="2"/><circle cx="260" cy="28" r="5" fill="#d96743" stroke="#fff" stroke-width="2"/></svg>`,
   monedas: (fondo) => `<svg viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" fill="${fondo}"/>
     <g font-family="Arial" font-weight="700" text-anchor="middle">
     <circle cx="95" cy="80" r="42" fill="#d4a017" stroke="#8a6508" stroke-width="5"/><circle cx="95" cy="80" r="32" fill="none" stroke="#fde68a" stroke-width="2"/><text x="95" y="90" font-size="26" fill="#5c3d02">₡25</text>
@@ -178,7 +182,8 @@ const GRADOS = [
     {t:'Reglas de divisibilidad', d:'El topo de la divisibilidad: establecer si un número natural es divisible por 2, 3, 5 o 10 aplicando las reglas de divisibilidad. Teoría, juego del topo, juego de burbujas y ficha.', ilu:'divisible', fondo:'#6d4bd8', url:'divisibilidad-topo-quinto-grado/', etq:['Divisibilidad','÷2 ÷3 ÷5 ÷10','Con voz']}
   ]},
   {n:6, nombre:'Sexto grado', juegos:[
-    {t:'Regla de tres, porcentajes y proporcionalidad', d:'Problemas de regla de tres, porcentajes y proporcionalidad directa: teoría paso a paso con videos y práctica con un ítem de cada tipo.', ilu:'regla', fondo:'#0e6a7a', url:'regla-tres-porcentajes-sexto-grado/', etq:['Regla de tres','Porcentajes','Proporcionalidad']}
+    {t:'Regla de tres, porcentajes y proporcionalidad', d:'Problemas de regla de tres, porcentajes y proporcionalidad directa: teoría paso a paso con videos y práctica con un ítem de cada tipo.', ilu:'regla', fondo:'#0e6a7a', url:'regla-tres-porcentajes-sexto-grado/', etq:['Regla de tres','Porcentajes','Proporcionalidad']},
+    {t:'Cuerpos sólidos', d:'Explora y gira prismas rectos, cubo, pirámide recta, cilindro y cono recto: caras, aristas, vértices, altura, radio, diámetro y generatriz. Con práctica interactiva y voz.', ilu:'cuerpos', fondo:'#2f5d62', url:'cuerpos-solidos-sexto-grado/', etq:['Geometría','Cuerpos sólidos','Con voz']}
   ]}
 ];
 document.getElementById('grados').innerHTML = GRADOS.map(g => `
