@@ -61,6 +61,7 @@ a{color:inherit}
 .gM{--c:#0d9488}.gM .num,.gM .n,.gM .jugar{background:#0d9488}
 .g1{--c:#e0562b}.g2{--c:#7c3aed}.g3{--c:#0e7490}.g4{--c:#16a34a}.g5{--c:#db2777}.g6{--c:#b45309}
 .g1 .num,.g1 .n,.g1 .jugar{background:#e0562b}.g2 .num,.g2 .n,.g2 .jugar{background:#7c3aed}.g3 .num,.g3 .n,.g3 .jugar{background:#0e7490}
+.gI{--c:#0f7c8c}.gI .num,.gI .n,.gI .jugar{background:#0f7c8c}
 .g4 .num,.g4 .n,.g4 .jugar{background:#16a34a}.g5 .num,.g5 .n,.g5 .jugar{background:#db2777}.g6 .num,.g6 .n,.g6 .jugar{background:#b45309}
 </style>
 </head>
@@ -81,6 +82,7 @@ a{color:inherit}
     <a class="chip g4" href="#grado4"><span class="n">4</span>Cuarto grado</a>
     <a class="chip g5" href="#grado5"><span class="n">5</span>Quinto grado</a>
     <a class="chip g6" href="#grado6"><span class="n">6</span>Sexto grado</a>
+    <a class="chip gI" href="#gradoI"><span class="n">🌎</span>Inclusión e idiomas</a>
   </nav>
   <div id="grados"></div>
   <p class="autoria"><strong>Elaborado por: Alberto Jiménez Ruiz</strong><br>Asesor Regional de Matemática DRE-Cartago-DAP-2026</p>
@@ -148,6 +150,13 @@ const ILU = {
       <rect x="242" y="22" width="58" height="40" rx="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><text x="271" y="50">÷3</text>
       <rect x="172" y="76" width="58" height="40" rx="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><text x="201" y="104">÷5</text>
       <rect x="242" y="76" width="58" height="40" rx="12" fill="rgba(255,255,255,.22)" stroke="#fff" stroke-width="2"/><text x="271" y="104">÷10</text></g></svg>`
+  ,idioma: (fondo) => `<svg viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" fill="${fondo}"/>
+    <circle cx="268" cy="34" r="18" fill="#e0a21b"/>
+    <path d="M0 112 Q40 98 80 112 T160 112 T240 112 T320 112 V150 H0Z" fill="#0b5f6c"/>
+    <rect x="24" y="30" width="122" height="52" rx="16" fill="#fff"/><path d="M50 82 L44 98 L66 82Z" fill="#fff"/>
+    <text x="85" y="63" font-family="Arial" font-weight="800" font-size="20" text-anchor="middle" fill="#0b5f6c">Hola</text>
+    <rect x="150" y="56" width="122" height="52" rx="16" fill="#c4502a"/><path d="M246 108 L254 122 L232 108Z" fill="#c4502a"/>
+    <text x="211" y="89" font-family="Arial" font-weight="800" font-size="20" text-anchor="middle" fill="#fff">Naksa</text></svg>`
   ,regla: (fondo) => `<svg viewBox="0 0 320 150" aria-hidden="true"><rect width="320" height="150" fill="${fondo}"/>
     <circle cx="80" cy="75" r="50" fill="#f4c75f" stroke="#fff" stroke-width="4"/><text x="80" y="90" font-family="Arial" font-weight="900" font-size="40" text-anchor="middle" fill="#0a3043">%</text>
     <g font-family="Arial" font-weight="900" font-size="30" text-anchor="middle" fill="#fff">
@@ -186,11 +195,14 @@ const GRADOS = [
   {n:6, nombre:'Sexto grado', juegos:[
     {t:'Regla de tres, porcentajes y proporcionalidad', d:'Problemas de regla de tres, porcentajes y proporcionalidad directa: teoría paso a paso con videos y práctica con un ítem de cada tipo.', ilu:'regla', fondo:'#0e6a7a', url:'regla-tres-porcentajes-sexto-grado/', etq:['Regla de tres','Porcentajes','Proporcionalidad']},
     {t:'Cuerpos sólidos', d:'Explora y gira prismas rectos, cubo, pirámide recta, cilindro, cono recto y esfera: caras, aristas, vértices, altura, radio, diámetro, generatriz, centro y cuerda. Con práctica interactiva, práctica general con ítems imprimibles y voz.', ilu:'cuerpos', fondo:'#2f5d62', url:'cuerpos-solidos-sexto-grado/', etq:['Geometría','Cuerpos sólidos','Con voz']}
+  ]},
+  {n:'I', ico:'🌎', nombre:'Inclusión e idiomas', juegos:[
+    {t:'Traductor español – miskito', d:'Para estudiantes miskitos: habla o escribe en español y escucha la traducción al miskito de Nicaragua. Banco de frases con voz grabada, diccionario y traducción libre con inteligencia artificial. Versión de prueba: las traducciones deben revisarlas hablantes de miskito.', ilu:'idioma', fondo:'#8fd3dc', url:'traductor-espanol-miskito/', etq:['Miskito','Inclusión','Con voz','Versión de prueba'], boton:'▶ Abrir'}
   ]}
 ];
 document.getElementById('grados').innerHTML = GRADOS.map(g => `
   <section class="grado g${g.n}" id="grado${g.n}" aria-labelledby="tg${g.n}">
-    <div class="grado-tit"><span class="num">${g.n}</span><div><h2 id="tg${g.n}">${g.nombre}</h2>
+    <div class="grado-tit"><span class="num">${g.ico || g.n}</span><div><h2 id="tg${g.n}">${g.nombre}</h2>
       <small>${g.juegos.length ? `${g.juegos.length} ${g.juegos.length === 1 ? 'interactivo' : 'interactivos'}` : 'Próximamente'}</small></div></div>
     ${g.juegos.length ? `<div class="tarjetas">${g.juegos.map(j => `
       <article class="tarjeta">
@@ -199,7 +211,7 @@ document.getElementById('grados').innerHTML = GRADOS.map(g => `
           <h3>${j.t}</h3>
           <div class="etq">${j.etq.map(e => `<span>${e}</span>`).join('')}</div>
           <p>${j.d}</p>
-          <a class="jugar" href="${BASE + j.url}" target="_blank" rel="noopener">▶ Jugar</a>
+          <a class="jugar" href="${BASE + j.url}" target="_blank" rel="noopener">${j.boton || '▶ Jugar'}</a>
         </div>
       </article>`).join('')}</div>` : `<p class="vacio">🛠️ Muy pronto habrá interactivos para ${g.nombre.toLowerCase()}.</p>`}
   </section>`).join('');
